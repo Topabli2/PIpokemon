@@ -1,0 +1,13 @@
+.Pk{
+  position: relative;
+  background-color: rgba(255,255,255,0.5);
+  border: 1px solid #ddd;
+  padding: 40px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.Pk:hover {
+  transform: scale(1.05) translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /
+}

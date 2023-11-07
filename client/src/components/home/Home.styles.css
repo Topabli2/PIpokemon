@@ -1,0 +1,35 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.Container{
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #ff0000, #ffcc00, green);
+  background-size: 400% 400%;
+  position: relative;
+  animation: cambiar 10s ease infinite;
+}
+
+/* div.Container{
+  height: 100%;
+
+} */
+
+@keyframes cambiar {
+  0% {
+    background-position: 0 50%; /* Mantiene el color inicial al inicio de la animación */
+  }
+  50% {
+    background-position: 100% 50%; /* Mueve el color al final de la animación */
+  }
+  100% {
+    background-position: 0% 50%; /* Mueve el color al final de la animación */
+  }
+}
+
+.Titulo{
+  text-align: center;
+  padding: 40px;
+}

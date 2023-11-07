@@ -1,0 +1,23 @@
+.navBar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #333;
+  height: 60px;
+  padding: 0 20px;
+}
+
+.navBar a {
+  text-decoration: none;
+}
+
+.navBar a h3 {
+  color: #fff;
+  margin: 0;
+  padding: 10px;
+  transition: color 0.3s;
+}
+
+.navBar a:hover h3 {
+  color: #FFCB05;
+}

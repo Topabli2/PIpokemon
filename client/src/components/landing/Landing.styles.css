@@ -1,0 +1,74 @@
+/* Estilos para la landing page */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #c0c0c0;
+}
+
+.containeeeer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image:url("https://r1.ilikewallpaper.net/iphone-8-wallpapers/download/30909/Pikachu-Pokemon-Pixel-Art-iphone-8-wallpaper-ilikewallpaper_com.jpg"), url("https://wallpapers.com/images/hd/squirtle-pixel-art-pokemon-iphone-tm65y4b2ga70os1e.jpg");
+  background-repeat: no-repeat;
+  background-size: 30%, 30%;
+  background-position: left, right; /* Posiciona la primera imagen al centro y la segunda a la derecha */
+}
+
+.content {
+  text-align: center;
+}
+
+.btn22 {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #FFCB05;
+}
+
+.link22 {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+/* Estilos para la animación del título */
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.title {
+  font-size: 2em;
+  color: #333;
+  animation: slideIn 1s ease-in-out forwards; /* Aplicando la animación al título */
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(-5px);
+  }
+}
+
+.pokemon-logo {
+  width: 600px;
+  height: auto;
+  position: absolute;
+  top: 20px;
+  z-index: 1;
+  animation: slide 5s infinite linear; /* Ajusta la duración y el tipo de animación según sea necesario */
+}

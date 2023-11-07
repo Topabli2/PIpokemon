@@ -1,0 +1,30 @@
+/* .Pks{
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   align-items: flex-start;
+   gap: 60px;
+}
+
+.btn-cont {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+} */
+
+.Pks {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px;
+}
+
+.btn-cont {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centrar horizontalmente */
+  gap: 10px;
+  width: 100%; /* Ajustar el ancho al 100% */
+  padding-bottom: 30px;
+}

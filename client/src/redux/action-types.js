@@ -1,0 +1,11 @@
+export const GET_ALL_POKEMONS = "GET_ALL_POKEMONS";
+export const GET_POKEMON_BY_ID = "GET_POKEMON_BY_ID";
+export const CLEAN_DETAIL_STATE = "CLEAN_DETAIL_STATE";
+export const GET_BY_NAME = "GET_BY_NAME";
+export const ACTION_ORDER = "ACTION_ORDER";
+export const ACTION_FILTER_ORIGIN = "ACTION_FILTER_ORIGIN";
+export const ACTION_FILTER_TYPES = "ACTION_FILTER_TYPES";
+export const GET_TYPES = "GET_TYPES";
+export const SET_PAGE = "SET_PAGE";
+export const CREATE_POKEMON = "CREATE_POKEMON";
+export const RESET_ALL = "RESET_ALL";

@@ -1,0 +1,47 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+/* Estilos para la tarjeta */
+.containerDetail{
+  background: linear-gradient(45deg, #ff0000, #ffcc00, green);
+  background-size: 200% 100%; /* Doble tamaño para permitir el desplazamiento */
+  position: relative;
+  animation: cambiar 10s ease infinite;
+  height: 100vh;
+}
+
+.card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 40px;
+  width: 400px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Sombra suave */
+  text-align: center;
+  margin: 0px auto;
+  width: 50%; 
+  font-family: 'Courier New', Courier, monospace;
+}
+
+h2{
+  padding: 10px;
+}
+
+
+@keyframes cambiar {
+  0% {
+    background-position: 0 50%; /* Mantiene el color inicial al inicio de la animación */
+  }
+  50% {
+    background-position: 100% 50%; /* Mueve el color al final de la animación */
+  }
+  100% {
+    background-position: 0% 50%; /* Mueve el color al final de la animación */
+  }
+}
+
+.btn{
+  border-radius: 10px;
+  width: 200px;
+  padding: 10px;
+}
