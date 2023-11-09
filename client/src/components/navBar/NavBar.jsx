@@ -21,7 +21,7 @@ const NavBar = () => {
       </Link>
 
       <Link to="/create">
-        <h3>CREATE ACTIVITY</h3>
+        <h3>CREATE POKEMON</h3>
       </Link>
     </div>
   );

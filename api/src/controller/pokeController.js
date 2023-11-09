@@ -18,6 +18,7 @@ const getApiInfo = async () => {
           id: pkmns.id,
           name: pkmns.name,
           image: pkmns.sprites.other.home.front_default,
+          // `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${pkmns.id}.png`,
           healt: pkmns.stats[0].base_stat,
           attack: pkmns.stats[1].base_stat,
           defense: pkmns.stats[2].base_stat,
@@ -27,6 +28,7 @@ const getApiInfo = async () => {
         };
       })
     );
+
     return await infoApi;
   } catch (error) {
     return error.message;

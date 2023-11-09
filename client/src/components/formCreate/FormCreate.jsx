@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { createPokemon, getTypes } from "../../redux/actions";
+import { createPokemon, getTypes, getPokemons } from "../../redux/actions";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import validate from "../../validate/validate";
@@ -29,6 +29,10 @@ const Form = () => {
 
   const [errors, setErrors] = useState({});
 
+  const [formularioLleno, setFormularioLleno] = useState(false); //NUEVOOOOOOOOOOOOOO//NUEVOOOOOOOOOOOOOO//NUEVOOOOOOOOOOOOOO//NUEVOOOOOOOOOOOOOO
+  const [pokemonCreado, setPokemonCreado] = useState(false); //NUEVOOOOOOOOOOOOOO//NUEVOOOOOOOOOOOOOO//NUEVOOOOOOOOOOOOOO//NUEVOOOOOOOOOOOOOO
+  const [mensajeError, setMensajeError] = useState(null); //NUEVOOOOOOOOOOOOOO //NUEVOOOOOOOOOOOOOO//NUEVOOOOOOOOOOOOOO//NUEVOOOOOOOOOOOOOO//NUEVOOOOOOOOOOOOOO
+
   const handleChange = (event) => {
     const { name, value } = event.target;
     setPokemon({
@@ -36,6 +40,7 @@ const Form = () => {
       [name]: value,
     });
     setErrors(validate({ ...pokemon, [name]: value }));
+    setFormularioLleno(isFormValid()); //NUEVOOOOOOOOOOOOOO //NUEVOOOOOOOOOOOOOO//NUEVOOOOOOOOOOOOOO//NUEVOOOOOOOOOOOOOO//NUEVOOOOOOOOOOOOOO
   };
 
   const handleType = (event) => {
@@ -45,6 +50,7 @@ const Form = () => {
         types: [...pokemon.types, event.target.value],
       });
       setAux(event.target.value);
+      setFormularioLleno(isFormValid()); //NUEVOOOOOOOOOOOOOO //NUEVOOOOOOOOOOOOOO//NUEVOOOOOOOOOOOOOO//NUEVOOOOOOOOOOOOOO//NUEVOOOOOOOOOOOOOO
     }
   };
 
@@ -69,13 +75,39 @@ const Form = () => {
     );
   };
 
+  // const handleCreate = async () => {
+  //   try {
+  //     const res = await dispatch(createPokemon(pokemon));
+  //   } catch (error) {
+  //     return error.message;
+  //   }
+  // };
+
+  // const handleCreate = async () => {
+  //   //NUEVOOOOOOOOOOOOOO //NUEVOOOOOOOOOOOOOO//NUEVOOOOOOOOOOOOOO//NUEVOOOOOOOOOOOOOO//NUEVOOOOOOOOOOOOOO
+  //   try {
+  //     const res = await dispatch(createPokemon(pokemon)); // Suponiendo que createPokemon hace la llamada para crear el Pokémon
+  //     setPokemonCreado(true); // Se establece a true si la creación fue exitosa
+  //   } catch (error) {
+  //     setMensajeError(error.message); // Captura y muestra un mensaje de error si algo salió mal
+  //   }
+  // };
+
   const handleCreate = async () => {
+    //NUEVOOOOOOOOOOOOOO //NUEVOOOOOOOOOOOOOO//NUEVOOOOOOOOOOOOOO//NUEVOOOOOOOOOOOOOO//NUEVOOOOOOOOOOOOOO
     try {
+      // Si el nombre no existe, proceder con la creación del Pokémon
       const res = await dispatch(createPokemon(pokemon));
+      setPokemonCreado(true); // Se establece a true si la creación fue exitosa
+      setMensajeError(null);
     } catch (error) {
-      return error.message;
+      if (error.response && error.response.status === 400) {
+        setMensajeError("No se pueden crear Pokémon repetidos");
+        setPokemonCreado(false);
+      }
     }
   };
+
   console.log("soy el errors", errors);
   return (
     <div className="megaCont">
@@ -147,10 +179,18 @@ const Form = () => {
             })}
           </select>
 
-          <button className="btnCreate" onClick={handleCreate}>
+          <button
+            className="btnCreate"
+            // onClick={handleCreate}
+            disabled={!formularioLleno}
+          >
             CREAR POKEMON
           </button>
         </form>
+        {pokemonCreado && !mensajeError && (
+          <p>¡El Pokémon se ha creado correctamente!</p>
+        )}
+        {mensajeError && <p>Error: {mensajeError}</p>}
         <div>
           <button>
             <Link to="/home">Volver al Home</Link>
